@@ -21,6 +21,17 @@ public class  Board
   }
   
   /* your code here - accessor(s) */
+   public String getPhraseToSolve() {
+    return phrase;
+  }
+  
+  public int getCurrentLetterValue(){
+    return currentLetterValue;
+  }
+
+  public String getPartiallySolvedPhrase(){
+    return solvedPhrase; 
+  }
   
   /* your code here - mutator(s)  */
 
