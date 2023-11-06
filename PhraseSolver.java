@@ -60,9 +60,9 @@ public class PhraseSolver
 
       //check user guess
       correct = board.guessLetter(guess);
-      System.out.println(correct);
+      //System.out.println(correct);
       solved = board.isSolved(guess);
-      System.out.println(solved);
+      //System.out.println(solved);
 
       //assign points
       if (correct) {
