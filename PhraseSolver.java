@@ -37,7 +37,18 @@ public class PhraseSolver
     {
       
       /* your code here - game logic */
-      
+      //display current player name
+      String currentPlayerName = (currentPlayer == 1) ? player1.getName() : player2.getName();
+      System.out.println("Current Player: " + currentPlayerName);
+
+      // display partially solved phrase
+      String partiallySolvedPhrase = board.getPartiallySolvedPhrase();
+      System.out.println("Partially Solved Phrase: " + partiallySolvedPhrase);
+
+      //show point valie of next letter guess
+      int letterValue = board.getCurrentLetterValue;
+      System.out.println("Point Value of Next Letter Guess: " + letterValue);
+        
       
       /* your code here - determine how game ends */
       solved = true; 
