@@ -38,6 +38,10 @@ public class PhraseSolver
     {
       
       /* your code here - game logic */
+      //get player
+      Player currPlayer = (currentPlayer == 1) ? player1 : player2;
+      System.out.println("--------------------------------------");
+
       //display current player name
       String currentPlayerName = (currentPlayer == 1) ? player1.getName() : player2.getName();
       System.out.println("Current Player: " + currentPlayerName);
@@ -54,12 +58,23 @@ public class PhraseSolver
       System.out.println("Please enter your guess (full phrase or letter): ");
       String guess = input.nextLine();
 
-      if (guess.length() == 1) {
-        boolean ifFound;
-        ifFound = board.guessLetter(guess);
-      } else {
-        solved = board.isSolved(guess);
+      //check user guess
+      correct = board.guessLetter(guess);
+      System.out.println(correct);
+      solved = board.isSolved(guess);
+      System.out.println(solved);
+
+      //assign points
+      if (correct) {
+        currPlayer.setPoints(currPlayer.getPoints() + letterValue);
+      } else if (solved) {
+        partiallySolvedPhrase = guess;
+        currPlayer.setPoints(currPlayer.getPoints() + letterValue);
+        System.out.println("Congrats! You found the secret phrase: " + partiallySolvedPhrase);
       }
+      
+      // tell user current score
+      System.out.println("Current points of player " + currentPlayerName + ": " + currPlayer.getPoints());
 
       //change player
       if (currentPlayer == 1) {
@@ -71,6 +86,17 @@ public class PhraseSolver
       /* your code here - determine how game ends */
       solved = board.isSolved(partiallySolvedPhrase);
     } 
+
+    //declare winner
+    Player currPlayer;
+
+    if (player1.getPoints() > player2.getPoints()) {
+      currPlayer = player1;
+    } else {
+      currPlayer = player2;
+    }
+
+    System.out.println("The winner is player " + currPlayer.getName() + " with  " + currPlayer.getPoints() + "!!!");
 
     input.close();
   }

@@ -13,14 +13,16 @@ public class  Board
   private int currentLetterValue; 
 
   /* your code here - constructor(s) */ 
+
   public Board() {
     solvedPhrase = "";
     phrase = loadPhrase();
     setLetterValue();
-    System.out.println("Phrase: " + phrase); //temp test code
+    //System.out.println("Phrase: " + phrase); //temp test code
   }
   
   /* your code here - accessor(s) */
+
    public String getPhraseToSolve() {
     return phrase;
   }
@@ -37,8 +39,6 @@ public class  Board
   //solved phrase doesnt need a mutator, it doesnt change
   //phrase has a mutator
   //currentletterval has a mutator
-
-
 
   /* ---------- provided code, do not modify ---------- */
   public void setLetterValue()
