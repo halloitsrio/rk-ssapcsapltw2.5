@@ -20,7 +20,7 @@ public class Player
     name = newName;
     points = 0;
     System.out.println("Hello and welcome to the game, " + name);
-    sc.close();
+    //sc.close();
   }
 
   public Player(String inputName) {
@@ -42,4 +42,12 @@ public class Player
     return points; 
   }
   /* your code here - mutator(s) */ 
+
+  public void setName(String n) {
+    name = n;
+  }
+
+  public void setPoints(int p) {
+    points = p;
+  }
 }

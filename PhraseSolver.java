@@ -25,6 +25,7 @@ public class PhraseSolver
   
   /* your code here - mutator(s)  */
 
+
   public void play()
   {
     boolean solved = false;
@@ -45,13 +46,30 @@ public class PhraseSolver
       String partiallySolvedPhrase = board.getPartiallySolvedPhrase();
       System.out.println("Partially Solved Phrase: " + partiallySolvedPhrase);
 
-      //show point valie of next letter guess
-      int letterValue = board.getCurrentLetterValue;
+      //show point value of next letter guess
+      int letterValue = board.getCurrentLetterValue();
       System.out.println("Point Value of Next Letter Guess: " + letterValue);
-        
+
+      //get user guess
+      System.out.println("Please enter your guess (full phrase or letter): ");
+      String guess = input.nextLine();
+
+      if (guess.length() == 1) {
+        boolean ifFound;
+        ifFound = board.guessLetter(guess);
+      } else {
+        solved = board.isSolved(guess);
+      }
+
+      //change player
+      if (currentPlayer == 1) {
+        currentPlayer = 2;
+      } else {
+        currentPlayer = 1;
+      }
       
       /* your code here - determine how game ends */
-      solved = true; 
+      solved = board.isSolved(partiallySolvedPhrase);
     } 
 
     input.close();
