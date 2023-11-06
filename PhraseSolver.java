@@ -76,11 +76,13 @@ public class PhraseSolver
       // tell user current score
       System.out.println("Current points of player " + currentPlayerName + ": " + currPlayer.getPoints());
 
-      //change player
-      if (currentPlayer == 1) {
-        currentPlayer = 2;
-      } else {
-        currentPlayer = 1;
+      //change player if wrong guess
+      if (!correct && !solved) {
+        if (currentPlayer == 1) {
+          currentPlayer = 2;
+        } else {
+          currentPlayer = 1;
+        }
       }
       
       /* your code here - determine how game ends */
